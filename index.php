@@ -1,5 +1,5 @@
 <?php
-
+echo 'hello this is test';
 session_start();
 include_once "header.php";
 
