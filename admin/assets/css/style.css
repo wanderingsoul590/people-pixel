@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:wght@400;500;600&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.admin_menu {
+    box-shadow: 2px -1px 20px #0000001a;
+}
+
+.admin_c {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 300px 1fr;
+    position: fixed;
+    height: 100vh;
+}
+
+.menu_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    border-radius: 0 0 30px 30px;
+    margin: 0 20px;
+    box-sizing: border-box;
+    box-shadow: 0px -5px 8px 0px #0000001c inset;
+}
+
+.admin_menu img {
+    width: 150px;
+}
+
+.admin_nav {}
+
+.admin_nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 30px 0 0 0;
+}
+
+.admin_nav a{
+    margin: 10px 20px;
+    padding: 15px;
+    display: block;
+    box-sizing: border-box;
+    color: black;
+    font-size: 18px;
+    font-family: 'Noto Sans';
+    transition: 0.2s;
+    border-radius: 10px;
+    box-shadow: 2px 3px 9px #00000026;
+}
+
+.admin_nav a.active {
+    background: linear-gradient(108.88deg, #0153FF 0%, #01BDF8 100%);
+    color: white;
+}
+
+.admin_nav a:hover{
+    text-decoration: none;
+    background: linear-gradient(108.88deg, #0153FF 0%, #01BDF8 100%);
+    color: white;
+}
+
+
+
+.admin_main {
+    overflow: scroll;
+}
+
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    height: 80px;
+}
+
+.calendar td {
+    border: 1px solid #05aef96b;
+}
+
+.calendar td:hover, .active_date{
+    background: #0097ff30 !important;
+}
+td.holiday {
+    background: #05f96a2e;
+}
+
+td.holiday span {
+    width: 100%;
+    display: block;
+    font-size: 10px;
+}
+
+.calendar .empty {
+    visibility: hidden;
+}
+
+td.today {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width: 100%;
+    border: none;
+    border-left: 1px solid #05aef96b;
+    color: white;
+}
+td.today::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: #0153ff;
+    position: absolute;
+    z-index: -1;
+    border-radius: 100%;
+}
+
+.custom-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 1px 1px 11px #00000038;
+    padding: 20px;
+}
+
+.custom-menu form{
+    display: flex;
+    flex-direction: column;
+}
+
+button#new_holiday {
+    margin: 20px 0 0 0 !important;
+}
+
+.custom-menu input[type="text"] {
+    padding: 5px;
+    font-family: 'Noto Sans';
+    margin: 0;
+}
+
+.custom-menu #remove_holiday{
+    margin: 0px 0 0  0 !important;
+}
+
+
+/*data table design */
+.dt-buttons {
+    position: absolute !important;
+    top: 50px;
+    right: 50px;
+}
+
+div#myTable_length {
+    float: left;
+}
+
+div#myTable_wrapper {
+    font-family: 'Noto Sans';
+    font-size: 14px;
+}
+
+.dt-button.buttons-html5 {
+    padding: 5px 20px;
+    margin: 0 0 0 20px;
+    background: none;
+    border: none;
+    font-family: 'Noto Sans';
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(108.88deg, #0153FF 0%, #01BDF8 100%);
+    border-radius: 8px;
+}
+.dt-button.buttons-html5:hover {
+    border: none !important;
+    background: black !important;
+}
+div#myTable_length {
+    float: left;
+}
+.page-item.active .page-link {
+    background: linear-gradient(108.88deg, #0153FF 0%, #01BDF8 100%);
+    border-color: #0153FF;
+}
+.page-link{
+    color: #0153FF;
+}
+table.dataTable.table-striped>tbody>tr.odd>* {
+    background: #0097ff1c;
+    box-shadow: none;
+}
+div#myTable_info {
+    float: left;
+}
+ul.pagination {
+    margin: 10px 0 0 0 !important;
+}
+select.custom_select {
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    background-position: calc(100% - 12px) center !important;
+    background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+    padding: 8px 32px 8px 16px;
+}
+.select_month_wrapper {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+span.delete-btn, .profile-btn {
+    width: 100%;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+span.profile-btn:hover{
+    color: #0029ff;
+}
+
+span.delete-btn:hover{
+    color: red;
+}
+.employee_actions {
+    display: flex;
+}
+
+/*******************************************************************************************************************************************************/
+.container {
+    padding: 50px;
+    max-width: 100%;
+    background: #0097ff30;
+    min-height: 100vh;
+    background-image: url(https://img.freepik.com/free-vector/white-abstract-background-design_23-2148825582.jpg?w=2000&t=st=1684838203~exp=1684838803~hmac=31ead55…);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.data_table_wrapper {
+    width: 100%;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 50px 0;
+    box-sizing: border-box;
+    background: white;
+    position: relative;
+    box-shadow: 5px 5px 21px #cccccc, -5px -5px 21px #ffffff;
+    font-family: 'Noto Sans';
+    font-size: 14px;
+}
+
+.data_table_wrapper_attendace{
+    padding: 100px 50px 50px 50px;
+}
+.container h2 {
+    text-align: right;
+    font-family: 'Noto Sans';
+    font-size: 28px;
+}
+h4 {
+    margin: 30px 0;
+    text-align: center;
+    background: #193e80;
+    padding: 10px 0;
+    border-radius: 260px;
+    color: white;
+}
+
+button.btn.btn-primary {
+    background: #193e80;
+    border-radius: 200px;
+    padding: 10px 40px;
+}
+
+.alert_container {
+    position: fixed;
+    right: 20px;
+    width: 20%;
+    top: 20px;
+}
+
+
+/*profile page
+*********************************************************************************************************************************************************************
+*/
+
+.profile_info td {
+    width: 200px;
+    padding: 10px 0;
+    font-size: 18px;
+    font-family: 'Noto Sans';
+}
+
+.profile_info td:first-child{
+    font-weight: bold;
+}

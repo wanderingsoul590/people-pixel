@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:wght@400;500;600&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.ls_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /*background-image: url(../assets/login-bg.png);*/
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.ls_container .card img {
+    width: 160px;
+}
+
+.ls_container .card button.card_button {
+    background: linear-gradient(108.88deg, #0153FF 0%, #01BDF8 100%);
+    width: 100%;
+    padding: 10px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+}
+
+form.card_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+label.input_label {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+input.input_field {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    padding: 10px 0;
+    background: transparent;
+}
+
+h2.card_title {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 39px;
+    text-align: left;
+    width: 100%;
+    margin: 15px;
+}
+
+form#attendanceForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+button.attendance_button {
+    background: linear-gradient(108.88deg, #0153FF 0%, #01BDF8 100%);
+    width: 100%;
+    padding: 10px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+}
+
+
+span.show_check_time {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+@keyframes animate {
+    0%{
+        transform: translateY(0) translateX(-500px) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) translateX(500px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(143deg, #0153FF 0%, #01BDF8 100%);
+    overflow: hidden;
+     z-index: -1;
+}
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 19s linear infinite;
+}
+
+
+
+
+.background li:nth-child(0) {
+    left: 82%;
+    width: 85px;
+    height: 85px;
+    bottom: -85px;
+    animation-delay: 1s;
+}
+.background li:nth-child(1) {
+    left: 17%;
+    width: 154px;
+    height: 154px;
+    bottom: -154px;
+    animation-delay: 1s;
+}
+.background li:nth-child(2) {
+    left: 81%;
+    width: 250px;
+    height: 250px;
+    bottom: -250px;
+    animation-delay: 2s;
+}
+.background li:nth-child(3) {
+    left: 2%;
+    width: 234px;
+    height: 234px;
+    bottom: -234px;
+    animation-delay: 15s;
+}
+.background li:nth-child(4) {
+    left: 51%;
+    width: 140px;
+    height: 140px;
+    bottom: -140px;
+    animation-delay: 18s;
+}
+.background li:nth-child(5) {
+    left: 71%;
+    width: 223px;
+    height: 223px;
+    bottom: -223px;
+    animation-delay: 25s;
+}
+.background li:nth-child(6) {
+    left: 38%;
+    width: 254px;
+    height: 254px;
+    bottom: -254px;
+    animation-delay: 10s;
+}
+.background li:nth-child(7) {
+    left: 82%;
+    width: 183px;
+    height: 183px;
+    bottom: -183px;
+    animation-delay: 35s;
+}
+.background li:nth-child(8) {
+    left: 52%;
+    width: 224px;
+    height: 224px;
+    bottom: -224px;
+    animation-delay: 21s;
+}
+.background li:nth-child(9) {
+    left: 28%;
+    width: 183px;
+    height: 183px;
+    bottom: -183px;
+    animation-delay: 43s;
+}
+
+a.admin_button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    background: #0029ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+h3.attendance_timer {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+
+/*
+* Mobile CSS
+**********************************************************************************************************************************************************
+*/
+
+@media only screen and (max-width: 425px) {
+    .ls_container{
+        /*background-image: url("../assets/login-bg-mobile.png");*/
+        min-height: 100vh;
+    }
+    .card {
+        width: 70%;
+    }
+    h2.card_title {
+        font-size: 24px;
+    }
+}
