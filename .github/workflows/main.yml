@@ -2,22 +2,25 @@ on:
   push:
     branches:
       - main
+
 name: 🚀 Deploy website on push
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && github.event.ref_type == 'branch'
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
     
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ftp.saludcare.co.in
-        username: u548343843.pixelideas.site
-        password: F12@kzimLl
-        server-dir: /public_html/people/
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.saludcare.co.in
+          username: u548343843.pixelideas.site
+          password: F12@kzimLl
+          server-dir: /public_html/people/
 
-    - name: Print deployment status
-      run: echo "Deployment completed successfully."
+      - name: Print deployment status
+        run: echo "Deployment completed successfully."
