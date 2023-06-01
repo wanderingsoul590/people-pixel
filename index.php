@@ -2,6 +2,7 @@
 echo '<h1>The last test</h1>';
 session_start();
 include_once "header.php";
+include_once "ip-verification.php";
 
 $checkin = false;
 $checkout = false;
@@ -89,24 +90,31 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
     <form id="attendanceForm" method="post" action="index.php">
         <input type="hidden" name="type" id="attendanceType">
         <?php
-        if( ! $checkin ){
-            ?>
-                <button class="attendance_button checkin" onclick="setAttendanceType('checkin')">Check-in</button>
-            <?php
-        }elseif( ! $checkout ){
-            ?>
-                <button class="attendance_button checkout" onclick="setAttendanceType('checkout')">Check-out</button>
-                <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
-                <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
-            <?php
+        if( isConnectedToWifi() ){
+            if( ! $checkin ){
+                ?>
+                    <button class="attendance_button checkin" onclick="setAttendanceType('checkin')">Check-in</button>
+                <?php
+            }elseif( ! $checkout ){
+                ?>
+                    <button class="attendance_button checkout" onclick="setAttendanceType('checkout')">Check-out</button>
+                    <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
+                    <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
+                <?php
+            }else{
+                ?>
+                    <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
+                    <p style="display: none" class="is_checkout">true</p>
+                    <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
+                    <span class="show_check_time">Check-out Time : <?php echo $checkout_time; ?></span>
+                <?php
+            }
         }else{
             ?>
-                <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
-                <p style="display: none" class="is_checkout">true</p>
-                <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
-                <span class="show_check_time">Check-out Time : <?php echo $checkout_time; ?></span>
+            <button class="attendance_button checkin" disabled>Connect To wifi iValue</button>
             <?php
         }
+        
         ?>
 
     </form>
