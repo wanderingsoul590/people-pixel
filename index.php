@@ -1,5 +1,4 @@
 <?php
-echo '<h1>The last test</h1>';
 session_start();
 include_once "header.php";
 include_once "ip-verification.php";
