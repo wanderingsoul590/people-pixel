@@ -15,7 +15,7 @@ if (!isset($_SESSION['email'])) {
 }
 
 
-$admin = ['dalsaniyaankit557@gmail.com', 'vg@pixelideas.site'];
+$admin = ['dalsaniyaankit557@gmail.com', 'vg@pixelideas.site', 'hr@pixelideas.site'];
 // Check if the user is logged in
 if ( isset($_SESSION['email']) || in_array($_SESSION['email'], $admin) ) {
     echo "<a href='./admin' class='admin_button'>Admin</a>";
@@ -63,13 +63,13 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
             $checkin = true;
 
             $body = "Hello Admin, <br> <b> ".$_SESSION['name']." </b>Checkin at <b>$checkin_column<b>";
-            px_mail('vg@pixelideas.site', $_SESSION['name']." - Checkin", $body);
+            px_mail('hr@pixelideas.site', $_SESSION['name']." - Checkin", $body);
 
         } elseif ($type === "checkout") {
             $checkout = true;
 
             $body = "Hello Admin, <br> <b>".$_SESSION['name']."</b> Checkin at <b>$checkin_time</b> and Checkout at <b>$checkin_column</b>";
-            px_mail('vg@pixelideas.site', $_SESSION['name']." - Checkout", $body);
+            px_mail('hr@pixelideas.site', $_SESSION['name']." - Checkout", $body);
 
         }
         header("Location: index.php");
