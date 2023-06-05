@@ -13,7 +13,7 @@ function isConnectedToWifi() {
     }
 
     // Define your Wi-Fi network's IP address or IP range
-    $allowed_ip = ['223.179.149.128'];
+    $allowed_ip = ['117.97.167.214'];
 
     // Check if the visitor's IP address matches the allowed IP
     if (in_array($ipAddress, $allowed_ip)) {
