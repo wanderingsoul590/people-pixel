@@ -12,7 +12,6 @@ function isConnectedToWifi() {
         $ipAddress = $_SERVER['REMOTE_ADDR'];
     }
 
-    echo $ipAddress;
     // Define your Wi-Fi network's IP address or IP range
     $allowed_ip = ['117.97.167.214'];
 
