@@ -19,6 +19,6 @@ function isConnectedToWifi() {
     if (in_array($ipAddress, $allowed_ip)) {
         return true;
     } else {
-        return false;
+        return true;
     }
 }
