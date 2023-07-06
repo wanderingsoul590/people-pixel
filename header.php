@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pixel Ideas</title>
+    <link rel="icon" type="image/png" href="./assets/x.png">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
