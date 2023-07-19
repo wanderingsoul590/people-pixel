@@ -83,7 +83,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
 ?>
 
 <div class="ls_container">
-    <h1>hello ankit</h1>
     <div class="card">
     <h2  style="text-align: center;font-size: 23px;" class="card_title"><?php echo "Howdy,&nbsp;" . $_SESSION['name'] . "!"; ?></h2>
         <h3 class="attendance_timer"><span class="hours">00</span> : <span class="minute">00</span> : <span class="second">00</span> </h3>
