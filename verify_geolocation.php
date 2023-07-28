@@ -8,8 +8,8 @@ if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
     $officeLongitude = 72.5446393;
 
 
-   $officeLatitude = 23.031368104021166;
-   $officeLongitude = 72.51171621070604;
+   // $officeLatitude = 23.031368104021166;
+   // $officeLongitude = 72.51171621070604;
 
     $acceptableRadius = 10;
 
