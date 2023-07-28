@@ -91,30 +91,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
         <h3 class="attendance_timer"><span class="hours">00</span> : <span class="minute">00</span> : <span class="second">00</span> </h3>
     <form id="attendanceForm" method="post" action="index.php">
         <input type="hidden" name="type" id="attendanceType">
-    
-        <?php
-
-            if( ! $checkin ){
-                ?>
-
-                <button type="button" class="attendance_button checkin" data-type="checkin" onclick="Submit_Attendance('checkin')">Check-in</button>
-                <?php
-            }elseif( ! $checkout ){
-                ?>
-                <button type="button" class="attendance_button checkout" data-type="checkout" onclick="Submit_Attendance('checkout')">Check-out</button>
-                    <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
-                    <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
-                <?php
-            }else{
-                ?>
-                    <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
-                    <p style="display: none" class="is_checkout">true</p>
-                    <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
-                    <span class="show_check_time">Check-out Time : <?php echo $checkout_time; ?></span>
-                <?php
-            }
+    <button type="button" class="attendance_button checkin" data-type="checkin" onclick="Submit_Attendance('checkin')">Check-in</button>
         
-        ?>
 
     </form>
     </div>
@@ -138,7 +116,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
         function Submit_Attendance(type){
 
             if ( type === "checkin"){
-                showLoader();
+                $(".loader-container").show();
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
                         function (position) {
@@ -161,11 +139,11 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
                                             .attr("name", "type")
                                             .val(type);
 
-                                        hideLoader();
+                                        $(".loader-container").hide();
                                         $("#attendanceForm").append(input).submit();
 
                                     } else {
-                                        hideLoader();
+                                      $(".loader-container").hide();
                                         alert("You can only check-in while in the office. \nDistance from office: " + response.distance + " kilometers");
                                     }
                                 },
@@ -178,17 +156,17 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
                         function (error) {
                             // Handle geolocation error (user denied location permission or geolocation not available)
                             if (error.code === error.PERMISSION_DENIED) {
-                                hideLoader();
+                                $(".loader-container").hide();
                                 alert("Please enable location sharing for this website or in your browser settings to use the attendance feature.");
                             } else {
-                                hideLoader();
+                                $(".loader-container").hide();
                                 alert("Error occurred while getting your location. Please try again later.");
                             }
                         }
                     );
                 } else {
                     // Geolocation not supported by the browser
-                    hideLoader();
+                    $(".loader-container").hide();
                     alert("Geolocation is not supported by this browser.");
                 }
             }else{
@@ -200,14 +178,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
                 // Append the hidden input field to the form and submit the form.
                 $("#attendanceForm").append(input).submit();
             }
-        }
-
-        function showLoader() {
-            $(".loader-container").show();
-        }
-
-        function hideLoader() {
-            $(".loader-container").hide();
         }
 
         jQuery('document').ready(function (){
