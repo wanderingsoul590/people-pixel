@@ -94,7 +94,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
         <button type="button" class="attendance_button checkin" data-type="checkin" onclick="Submit_Attendance('checkin')">Check-in</button>
         <?php
 
-<button type="button" class="attendance_button checkin" data-type="checkin" onclick="Submit_Attendance('checkin')">Check-in</button>
 
             // if( ! $checkin ){
             //     ?>
