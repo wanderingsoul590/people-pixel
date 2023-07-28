@@ -81,6 +81,9 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
 }
 
 ?>
+<div class="loader-container" style="display: none;">
+    <div class="loader"></div>
+</div>
 
 <div class="ls_container">
     <div class="card">
@@ -89,14 +92,15 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
     <form id="attendanceForm" method="post" action="index.php">
         <input type="hidden" name="type" id="attendanceType">
         <?php
-        if( isConnectedToWifi() ){
+
             if( ! $checkin ){
                 ?>
-                    <button class="attendance_button checkin" onclick="setAttendanceType('checkin')">Check-in</button>
+
+                <button type="button" class="attendance_button checkin" data-type="checkin" onclick="Submit_Attendance('checkin')">Check-in</button>
                 <?php
             }elseif( ! $checkout ){
                 ?>
-                    <button class="attendance_button checkout" onclick="setAttendanceType('checkout')">Check-out</button>
+                <button type="button" class="attendance_button checkout" data-type="checkout" onclick="Submit_Attendance('checkout')">Check-out</button>
                     <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
                     <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
                 <?php
@@ -108,11 +112,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
                     <span class="show_check_time">Check-out Time : <?php echo $checkout_time; ?></span>
                 <?php
             }
-        }else{
-            ?>
-            <button class="attendance_button checkin" disabled>Connect To wifi iValue</button>
-            <?php
-        }
         
         ?>
 
@@ -134,12 +133,83 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script>
 
-    function setAttendanceType(type) {
-        document.getElementById("attendanceType").value = type;
-        document.getElementById("attendanceForm").submit();
-    }
 
-    jQuery('document').ready(function (){
+        function Submit_Attendance(type){
+
+            if ( type === "checkin"){
+                showLoader();
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function (position) {
+                            var latitude = position.coords.latitude;
+                            var longitude = position.coords.longitude;
+
+                            $.ajax({
+                                type: "POST",
+                                url: "verify_geolocation.php",
+                                data: {
+                                    latitude: latitude,
+                                    longitude: longitude,
+                                },
+                                dataType: "json",
+                                success: function (response) {
+                                    if (response.status === "true") {
+
+                                        var input = $("<input>")
+                                            .attr("type", "hidden")
+                                            .attr("name", "type")
+                                            .val(type);
+
+                                        hideLoader();
+                                        $("#attendanceForm").append(input).submit();
+
+                                    } else {
+                                        hideLoader();
+                                        alert("You can only check-in while in the office. \nDistance from office: " + response.distance + " kilometers");
+                                    }
+                                },
+                                error: function () {
+                                    // Handle AJAX call error (optional)
+                                    alert("Error occurred while verifying geolocation.");
+                                },
+                            });
+                        },
+                        function (error) {
+                            // Handle geolocation error (user denied location permission or geolocation not available)
+                            if (error.code === error.PERMISSION_DENIED) {
+                                hideLoader();
+                                alert("Please enable location sharing for this website or in your browser settings to use the attendance feature.");
+                            } else {
+                                hideLoader();
+                                alert("Error occurred while getting your location. Please try again later.");
+                            }
+                        }
+                    );
+                } else {
+                    // Geolocation not supported by the browser
+                    hideLoader();
+                    alert("Geolocation is not supported by this browser.");
+                }
+            }else{
+                var input = $("<input>")
+                    .attr("type", "hidden")
+                    .attr("name", "type")
+                    .val(type);
+
+                // Append the hidden input field to the form and submit the form.
+                $("#attendanceForm").append(input).submit();
+            }
+        }
+
+        function showLoader() {
+            $(".loader-container").show();
+        }
+
+        function hideLoader() {
+            $(".loader-container").hide();
+        }
+
+        jQuery('document').ready(function (){
 
 
         var checkin_time = $('.chechin_time').html();

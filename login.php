@@ -9,6 +9,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['email'] )){
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "SELECT * FROM employe WHERE email = '$email'";
+//    $sql = "SELECT * FROM users WHERE email = '$email'";
 
     $result = $con->query($sql);
 

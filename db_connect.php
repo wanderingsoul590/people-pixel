@@ -10,6 +10,11 @@ $username = "u548343843_people";  // Database username
 $password = "F12@kzimLl";  // Database password
 $database = "u548343843_people";  // Database name
 
+//$host = "localhost";  // Database host
+//$username = "root";  // Database username
+//$password = "root";  // Database password
+//$database = "attendance";  // Database name
+
 // Create a new MySQLi connection
 $con = new mysqli($host, $username, $password, $database);
 
