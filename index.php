@@ -95,25 +95,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
         <?php
 
 
-            // if( ! $checkin ){
-            //     ?>
-
-            //     <button type="button" class="attendance_button checkin" data-type="checkin" onclick="Submit_Attendance('checkin')">Check-in</button>
-            //     <?php
-            // }elseif( ! $checkout ){
-            //     ?>
-            //     <button type="button" class="attendance_button checkout" data-type="checkout" onclick="Submit_Attendance('checkout')">Check-out</button>
-            //         <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
-            //         <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
-            //     <?php
-            // }else{
-            //     ?>
-            //         <p style="display: none" class="chechin_time"><?php echo $_SESSION['checkin_time'];?></p>
-            //         <p style="display: none" class="is_checkout">true</p>
-            //         <span class="show_check_time">Check-in Time : <?php echo $checkin_time; ?></span>
-            //         <span class="show_check_time">Check-out Time : <?php echo $checkout_time; ?></span>
-            //     <?php
-            // }
         
         ?>
 
