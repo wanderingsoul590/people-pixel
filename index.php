@@ -122,7 +122,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
                         function (position) {
                             var latitude = position.coords.latitude;
                             var longitude = position.coords.longitude;
-
+                                console.log(latitude, longitude)
                             $.ajax({
                                 type: "POST",
                                 url: "verify_geolocation.php",
