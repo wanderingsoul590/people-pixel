@@ -4,8 +4,8 @@ if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
     $userLatitude = $_POST['latitude'];
     $userLongitude = $_POST['longitude'];
 
-    $officeLatitude = 23.02161;
-    $officeLongitude = 72.5446421;
+    $officeLatitude = 23.021541579675116;
+    $officeLongitude = 72.54465082134499;
 
 
    // $officeLatitude = 23.031368104021166;
