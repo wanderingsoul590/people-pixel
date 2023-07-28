@@ -91,6 +91,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
         <h3 class="attendance_timer"><span class="hours">00</span> : <span class="minute">00</span> : <span class="second">00</span> </h3>
     <form id="attendanceForm" method="post" action="index.php">
         <input type="hidden" name="type" id="attendanceType">
+        <button type="button" class="attendance_button checkin" data-type="checkin" onclick="Submit_Attendance('checkin')">Check-in</button>
         <?php
 
 <button type="button" class="attendance_button checkin" data-type="checkin" onclick="Submit_Attendance('checkin')">Check-in</button>
