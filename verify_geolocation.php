@@ -11,7 +11,7 @@ if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
    // $officeLatitude = 23.031368104021166;
    // $officeLongitude = 72.51171621070604;
 
-    $acceptableRadius = 5;
+    $acceptableRadius = 1;
 
 
     $distance = haversineDistance($userLatitude, $userLongitude, $officeLatitude, $officeLongitude);
@@ -21,12 +21,12 @@ if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
     if ($distance <= $acceptableRadius) {
         $response = array(
             "status" => "true",
-            "distance" => $distanceInKilometers
+            "distance" => $distance
         );
     } else {
         $response = array(
             "status" => "false",
-            "distance" => $distanceInKilometers
+            "distance" => $distance
         );
     }
 
