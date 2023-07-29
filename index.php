@@ -137,7 +137,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
 
         function Submit_Attendance(type){
 
-            if ( type === "checkin"){
                 $(".loader-container").show();
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
@@ -191,15 +190,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
                     $(".loader-container").hide();
                     alert("Geolocation is not supported by this browser.");
                 }
-            }else{
-                var input = $("<input>")
-                    .attr("type", "hidden")
-                    .attr("name", "type")
-                    .val(type);
-
-                // Append the hidden input field to the form and submit the form.
-                $("#attendanceForm").append(input).submit();
-            }
         }
 
         jQuery('document').ready(function (){
