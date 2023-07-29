@@ -21,12 +21,12 @@ if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
     if ($distance <= $acceptableRadius) {
         $response = array(
             "status" => "true",
-            "distance" => $distance
+            "distance" => $distanceInKilometers
         );
     } else {
         $response = array(
             "status" => "false",
-            "distance" => $distance
+            "distance" => $distanceInKilometers
         );
     }
 
