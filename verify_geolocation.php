@@ -11,7 +11,7 @@ if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
    // $officeLatitude = 23.031368104021166;
    // $officeLongitude = 72.51171621070604;
 
-    $acceptableRadius = 20;
+    $acceptableRadius = 100;
 
 
     $distance = haversineDistance($userLatitude, $userLongitude, $officeLatitude, $officeLongitude);
