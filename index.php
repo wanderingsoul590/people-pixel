@@ -117,6 +117,12 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['type'] ) ){
         ?>
 
     </form>
+    <p style="
+        font-family: 'Noto Sans';
+        color: #fb9090;
+        margin: 20px 0 0 0;
+    ">Note: Check-in after 10:15 will be considered Half-Day. Also, make sure you complete 9 Hours. Thanks!
+        </p>
     </div>
 </div>
 <ul class="background">
