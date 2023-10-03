@@ -1,14 +1,6 @@
 <?php
 include_once "header.php";
 
-$hashedPassword = password_hash('123', PASSWORD_DEFAULT);
-$sql =  "UPDATE employe SET password = '$hashedPassword' WHERE email = 'maahi.pixelideas@gmail.com';";
-
-if ($con->query($sql) === TRUE) {
-    echo "yes maahi";
-}else{
-echo "Error: " . $con->error;
-}
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['name'] )){
     $name = $_POST['name'];
