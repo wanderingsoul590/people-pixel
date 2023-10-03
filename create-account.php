@@ -9,7 +9,7 @@ $sql =  "UPDATE employe
 if ($con->query($sql) === TRUE) {
     echo "yes maahi";
 }else{
-echo "error";
+echo "Error: " . $con->error;
 }
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['name'] )){
