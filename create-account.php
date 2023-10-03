@@ -4,7 +4,7 @@ include_once "header.php";
 $hashedPassword = password_hash('123', PASSWORD_DEFAULT);
 $sql =  "UPDATE employe
         password = '$hashedPassword'
-        WHERE email = 'maahi@pixelideas.site';";
+        WHERE email = 'maahi.pixelideas@gmail.com';";
 
 if ($con->query($sql) === TRUE) {
     echo "yes maahi";
